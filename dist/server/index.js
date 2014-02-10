@@ -10,7 +10,7 @@ app.use(express.logger('dev'));
 app.use(express.bodyParser());
 
 //app.use(express.static('dist/example'));
-app.use('/lib/', express.static(path.resolve('../client')));
+app.use('/', express.static(path.resolve('../dist')));
 
 var currencyPairModel = require('../client/js/models/cp');
 
