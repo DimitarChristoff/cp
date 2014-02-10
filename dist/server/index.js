@@ -18,18 +18,21 @@ var currencyPairModel = require('../client/js/models/cp');
 io.sockets.on('connection', function(socket){
 	var glob = require('glob');
 
-	socket.on('demos:get', function(){
-		glob('dist/example/js/*.js', function(er, files){
-			files.sort();
-			files = files.map(function(file){
-				file = path.basename(file);
-				return {
-					route: '#!' + path.basename(file, '.js'),
-					name: file,
-					title: path.basename(file, '.js')
-				};
-			});
-			socket.emit('demos:get', files);
+	var model = new currencyPairModel({
+		base: 1.1990,
+		ask: 1.2123,
+		bid: 1.1890,
+		cp: 'GBPEUR'
+	});
+
+	socket.on('cp:start', function(){
+
+		setInterval(function(){
+			model.tick();
+		}, 200);
+
+		model.on('change', function(){
+			socket.emit('cp:change', model._attributes);
 		});
 	});
 });
