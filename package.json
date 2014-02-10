@@ -14,9 +14,9 @@
   },
   "license": "MIT (http://mootools.net/license.txt)",
   "dependencies": {
-    "slicker": "0.0.2",
     "primish": "~0.3.3",
-    "lodash": "~2.4.1"
+    "lodash": "~2.4.1",
+    "epik": "~0.4.2"
   },
   "devDependencies": {
     "grunt": "~0.4.2",
