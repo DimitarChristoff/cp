@@ -13,7 +13,7 @@ app.use(express.bodyParser());
 app.use('/', express.static(path.resolve('../dist')));
 
 var currencyPairModel = require('../client/js/models/cp');
-
+console.log(typeof currencyPairModel, currencyPairModel+'');
 
 io.sockets.on('connection', function(socket){
 	var glob = require('glob');
@@ -24,6 +24,8 @@ io.sockets.on('connection', function(socket){
 		bid: 1.1890,
 		cp: 'GBPEUR'
 	});
+
+	console.log(Object.keys(model));
 
 	socket.on('cp:start', function(){
 

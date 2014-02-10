@@ -11,7 +11,7 @@ module.exports = function(grunt){
 					port: 8000,
 					bases: [path.resolve('dist'), path.resolve('lib')],
 					serverreload: true,
-					//livereload: true,
+					livereload: true
 					//background: !true
 				}
 			}

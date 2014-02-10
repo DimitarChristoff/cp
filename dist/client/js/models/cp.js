@@ -1,17 +1,18 @@
 ;(function(factory){
 	if (typeof define == 'function' && define.amd){
-		define(['epik/index'], factory);
+		define(['epik/index', 'epik/model'], factory);
 	} else if (typeof module != 'undefined' && module.exports){
 		module.exports = factory(
-			require('epik')
+			require('epik'),
+			require('epik/lib/model')
 		);
 	}
-}).call(this, function(epik){
+}).call(this, function(epik, model){
 
 	// currency pair model
 	return epik.primish({
 
-		extend: epik.model,
+		extend: model,
 
 		defaults: {
 			base: 0,
@@ -21,7 +22,11 @@
 		},
 
 		tick: function(){
-
+			this.set({
+				base: this._attributes.base + 0.001,
+				ask: this._attributes.ask + 0.001,
+				bid: this._attributes.bid + 0.001
+			});
 		}
 
 	});
