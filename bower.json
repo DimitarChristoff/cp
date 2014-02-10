@@ -1,0 +1,9 @@
+{
+  "name": "todomvc-epik-requirejs",
+  "version": "0.0.1",
+  "dependencies": {
+    "epik": "0.4.2",
+    "requirejs-text": "~2.0.10",
+    "todomvc-common": "~0.1.9"
+  }
+}
