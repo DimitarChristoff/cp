@@ -89,7 +89,7 @@
 
 		validators: {
 			size: function(value){
-				return Number(value) == value;
+				return Number(value) == value || 'size needs to be a number';
 			}
 		},
 

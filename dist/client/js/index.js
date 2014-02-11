@@ -32,7 +32,9 @@ require.config({
 
 define(function(require){
 	var transport = new (require('./transport'))(),
-		cpModel = new (require('./models/cp')),
+		cpModel = new (require('./models/cp'))({
+			size: 100
+		}),
 		view = require('./views/cp-rivets');
 
 	new view({

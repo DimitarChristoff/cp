@@ -19,8 +19,7 @@ var currencyPairModel = require('../client/js/models/cp');
 io.sockets.on('connection', function(socket){
 	var model = new currencyPairModel({
 		base: 1.1990,
-		title: 'GBPEUR',
-		size: 100
+		title: 'GBPEUR'
 	}, {
 		refreshMin: 50,
 		refreshMax: 500

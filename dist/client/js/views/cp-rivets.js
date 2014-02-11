@@ -12,8 +12,6 @@ define(function(require){
 			this.rivets.formatters.price = function(value){
 				return format(value.toString()).three;
 			};
-
-			this.attachEvents();
 		},
 		attachEvents: function(){
 			var bid = {
@@ -36,7 +34,7 @@ define(function(require){
 			var model = this.model;
 
 			this.bindRivets(bound);
-			this.on('model:change', function(){
+			this.model.on('change:ask', function(){
 				var a = model.formatPrice(model._attributes.ask),
 					b = model.formatPrice(model._attributes.bid);
 
