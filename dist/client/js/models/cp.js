@@ -87,6 +87,12 @@
 			refreshMax: 2000
 		},
 
+		validators: {
+			size: function(value){
+				return Number(value) == value;
+			}
+		},
+
 		defaults: {
 			title: '',
 			formatter: '0.0000',
