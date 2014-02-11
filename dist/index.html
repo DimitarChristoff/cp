@@ -13,15 +13,23 @@
 		</header>
 		<section id="main">
 			<div class="pair">
-				<div ep-text="{{rate#bid}}"></div>
-				<div ep-text="{{rate#ask}}"></div>
+				<div class="sell">
+					<div class="half buy">
+						BUY
+						<div ep-text="rate#bid"></div>
+					</div>
+					<div class="half sell">
+						SELL
+						<div ep-text="rate#ask"></div>
+					</div>
+					<div class="clear"></div>
+				</div>
 			</div>
 		</section>
 		<footer id="footer">
 		</footer>
 	</section>
 	<footer id="info">
-		<p>Created by <a href="https://github.com/DimitarChristoff/">Dimitar Christoff</a></p>
 		<p>Powered by <a href="http://epitome-mvc.github.io/epik">epik</a></p>
 	</footer>
 	<script data-main="client/js/index" src="bower_components/requirejs/require.js"></script>

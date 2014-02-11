@@ -33,10 +33,12 @@ require.config({
 define(function(require){
 	var transport = new (require('./transport'))(),
 		cpModel = new (require('./models/cp')),
-		view = new (require('./views/cp-rivets')({
-			element: 'main',
-			model: cpModel
-		}));
+		view = require('./views/cp-rivets');
+
+	new view({
+		element: '#main',
+		model: cpModel
+	});
 
 	transport.subscribe('cp:change', function(data){
 		cpModel.set(data);

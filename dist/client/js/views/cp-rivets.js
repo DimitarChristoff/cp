@@ -1,10 +1,9 @@
-define([
-	'epik/index',
-	'epik/view',
-	'epik/plugins/rivets-adapter'
-], function(epik, view, rivets){
+define(function(require){
+	var primish = require('epik/index').primish,
+		view = require('epik/view'),
+		rivets = require('epik/plugins/rivets-adapter');
 
-	return epik.primish({
+	return primish({
 		implement: [rivets],
 		extend: view,
 		constructor: function(options){
@@ -12,15 +11,11 @@ define([
 			this.attachEvents();
 		},
 		attachEvents: function(){
-			var model = this.model,
-				bound = {
-					rate: this.model
-				};
+			var bound = {
+				rate: this.model
+			};
 
 			this.bindRivets(bound);
-
-			this.on('model:change', function(changed){
-			});
 		}
 	});
 });

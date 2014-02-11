@@ -82,6 +82,11 @@
 
 		extend: model,
 
+		options: {
+			refreshMin: 100,
+			refreshMax: 2000
+		},
+
 		defaults: {
 			title: '',
 			formatter: '0.0000',
@@ -108,6 +113,24 @@
 			obj.oldAsk = this._attributes.ask;
 
 			this.set(obj);
+		},
+
+		formatPrice: function(price){
+			var obj = {},
+				dot = price.indexOf('.'),
+				len = 4;
+
+			if (dot >= 3){
+				price = price.replace('.', '');
+				len = 3;
+			}
+
+			obj.one = price.substring(0, len);
+			obj.two = price.substring(len, len + 2);
+			// this is wrong as it does not round.
+			obj.three = price.substring(len + 2, len + 3);
+
+			return obj;
 		},
 
 		constructor: function(data){

@@ -6,8 +6,9 @@ var express = require('express'),
 	epik = require('epik');
 
 // var io = require('socket.io').listen(8080);
+io.set('log level', 1);
 
-app.use(express.logger('dev'));
+//app.use(express.logger('dev'));
 app.use(express.bodyParser());
 
 //app.use(express.static('dist/example'));
@@ -16,18 +17,21 @@ app.use('/', express.static(path.resolve('../dist')));
 var currencyPairModel = require('../client/js/models/cp');
 
 io.sockets.on('connection', function(socket){
-	var glob = require('glob');
-
 	var model = new currencyPairModel({
 		base: 1.1990,
 		title: 'GBPEUR'
-	});
+	}, {
+		refreshMin: 100,
+		refreshMax: 1000
+	}), o = model.options;
+
+	console.log(o);
 
 	socket.on('cp:start', function(){
 
 		setInterval(function(){
 			model.tick();
-		}, epik._(100, 300));
+		}, epik._.random(o.refreshMin, o.refreshMax));
 
 		model.on('change', function(){
 			socket.emit('cp:change', model._attributes);
