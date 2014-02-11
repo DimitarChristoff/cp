@@ -7,6 +7,7 @@ require.config({
 		slicker: '../../bower_components/slicker/index',
 		rivets: '../../bower_components/rivets/dist/rivets',
 		jquery: '../../bower_components/jquery/jquery',
+		big: '../../bower_components/big.js/big.min',
 		io: '/socket.io/socket.io',
 		text: '../../bower_components/requirejs-text/text'
 	},
@@ -30,10 +31,16 @@ require.config({
 
 
 define(function(require){
-	var transport = new (require('./transport'))();
+	var transport = new (require('./transport'))(),
+		cpModel = new (require('./models/cp')),
+		view = new (require('./views/cp-rivets')({
+			element: 'main',
+			model: cpModel
+		}));
 
 	transport.subscribe('cp:change', function(data){
-		console.log(data);
+		cpModel.set(data);
 	});
+
 	transport.send('cp:start');
 });
