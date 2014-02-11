@@ -104,10 +104,10 @@
 				obj = {
 					base: base.toFixed()
 				},
-				percent = (Number(obj.base) / 100 * 1 / 100).toFixed(obj.base.split('.')[1].length);
+				change = (Number(obj.base) / 100 * _.random(0, 0.2, true) / 100).toFixed(obj.base.split('.')[1].length);
 
-			obj.bid = base.plus(percent).toFixed();
-			obj.ask = base.minus(percent).toFixed();
+			obj.bid = base.plus(change).toFixed();
+			obj.ask = base.minus(change).toFixed();
 
 			obj.oldBid = this._attributes.bid;
 			obj.oldAsk = this._attributes.ask;

@@ -1,12 +1,11 @@
 /*main cp styles*/
 body {
-	background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHhtbG5zOnhsaW5rPSdodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rJyB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJz4KICA8ZGVmcz4KICAgIDxnIGlkPSdhJz4KICAgICAgPHBhdGggZD0nTTUgNmwtNiAtNiB2LTIgbDYgNicgZmlsbC1vcGFjaXR5PScwJyBzdHJva2U9JyMyYjNhNzUnIC8+CiAgICAgIDxwYXRoIGQ9J001IDVsNiAtNiB2LTIgbC02IDYnIGZpbGwtb3BhY2l0eT0nMCcgc3Ryb2tlPScjMzE0MTdkJyAvPgogICAgPC9nPgogICAgPHBhdHRlcm4gcGF0dGVyblVuaXRzPSd1c2VyU3BhY2VPblVzZScgeD0nMCcgeT0nMCcgaWQ9J3AnIHdpZHRoPScyMCcgaGVpZ2h0PScyMCcgdmlld0JveD0nMCAwIDEwIDEwJz4KICAgICAgPHVzZSB4bGluazpocmVmPScjYScvPiAgCiAgICAgIDx1c2UgeGxpbms6aHJlZj0nI2EnIHk9Jy00Jy8+CiAgICAgIDx1c2UgeGxpbms6aHJlZj0nI2EnIHk9JzQnLz4KICAgICAgPHVzZSB4bGluazpocmVmPScjYScgeT0nOCcvPgogICAgICA8dXNlIHhsaW5rOmhyZWY9JyNhJyB5PScxMicvPgogICAgPC9wYXR0ZXJuPgogICAgPHJhZGlhbEdyYWRpZW50IGdyYWRpZW50VW5pdHM9J3VzZXJTcGFjZU9uVXNlJyBpZD0nZycgY3g9JzUwJScgY3k9JzUwJScgZng9JzMwJScgZnk9JzMwJScgcj0nNjAlJz4KICAgICAgPHN0b3Agb2Zmc2V0PScwJScgc3RvcC1jb2xvcj0nI2FhYWFhYScgc3RvcC1vcGFjaXR5PScuNScgLz4KICAgICAgPHN0b3Agb2Zmc2V0PScxMDAlJyBzdG9wLWNvbG9yPScjMDAwMDAwJyBzdG9wLW9wYWNpdHk9Jy43JyAvPgogICAgICA8L3JhZGlhbEdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB4PSctNSUnIHk9Jy01JScgd2lkdGg9JzExMCUnIGhlaWdodD0nMTEwJScgZmlsbD0nIzAwMDAyMicvPgogIDxyZWN0IHdpZHRoPScxMTAlJyBoZWlnaHQ9JzExMCUnIGZpbGw9J3VybCgjcCknLz4KICA8cmVjdCB4PSctNSUnIHk9Jy01JScgd2lkdGg9JzExMCUnIGhlaWdodD0nMTEwJScgZmlsbD0ndXJsKCNnKScvPgo8L3N2Zz4=');
 	font-family: verdana, helvetica, arial, sans-serif;
 }
 
 .pair {
-	width: 400px;
-	height: 250px;
+	width: 280px;
+	height: 150px;
 	-webkit-transition: all 0.4s ease-out;
 	-moz-transition: all 0.4s ease-out;
 	transition: all 0.4s ease-out;
@@ -34,7 +33,6 @@ body {
 }
 
 .title {
-	text-shadow: -1px -1px 2px rgba(0, 0, 0, 0.9);
 	background-color: #f5f5f5;
 	background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
 	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
@@ -51,14 +49,109 @@ body {
 	text-transform: uppercase;
 	border-bottom: 2px solid red;
 	font-weight: bold;
+	height: 38px;
+	padding-left: 5px;
 }
 
 .pair .half {
+	box-sizing: border-box;
 	width: 50%;
 	float: left;
-	overflow: hidden;
-	height: 40px;
+	cursor: pointer;
+	border-bottom: 1px solid #808080;
+	height: 88px;
+	color: rgba(0,0,0,.6);
 }
+
+.pair .half.buy:hover {
+	background-image: -moz-linear-gradient(left, #ffffff, rgba(255,255,255,0));
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(rgba(255,255,255,0)));
+	background-image: -webkit-linear-gradient(left, #ffffff, rgba(255,255,255,0));
+	background-image: linear-gradient(to right, #ffffff, rgba(255,255,255,0));
+	color: black;
+}
+
+.pair .half.sell:hover {
+	background-image: -moz-linear-gradient(right, #ffffff, rgba(255,255,255,0));
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(rgba(255,255,255,0)));
+	background-image: -webkit-linear-gradient(right, #ffffff, rgba(255,255,255,0));
+	background-image: linear-gradient(to left, #ffffff, rgba(255,255,255,0));
+	color: black;
+}
+
+.pair .spread {
+	width: 50px;
+	margin: 0 auto auto;
+	text-align: center;
+	border: 1px solid #808080;
+	border-top: none;
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.9);
+	background: rgba(0,0,0,.1);
+}
+
+.pair .pair-label {
+	font-weight: bold;
+	font-size: .9em;
+	padding-top: 8px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.pair .pips {
+	float: left;
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.9);
+}
+.ask-one {
+	text-align: right;
+	width: 25%;
+	font-size: 14px;
+	margin-top: 28px;
+}
+
+.ask-two {
+	width: 50%;
+	text-align: center;
+	font-weight: bold;
+	font-size: 47px;
+	line-height: 47px;
+}
+
+.ask-three {
+	width: 25%;
+	font-size: 24px;
+	margin-top: 18px;
+	text-align: left;
+}
+
+.bid-one {
+	width: 25%;
+	margin-top: 28px;
+	font-size: 14px;
+}
+
+.bid-two {
+	width: 50%;
+	text-align: center;
+	font-weight: bold;
+	font-size: 47px;
+	line-height: 47px;
+}
+
+.bid-three {
+	width: 25%;
+	font-size: 24px;
+	margin-top: 18px;
+}
+
+
+.pair .half.buy .pair-label {
+	color: #447ffb;
+}
+
+.pair .half.sell .pair-label {
+	color: #e12f2e;
+}
+
 
 .ac {
 	margin: auto;
@@ -72,3 +165,4 @@ body {
 .clear {
 	clear: both;
 }
+
