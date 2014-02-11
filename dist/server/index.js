@@ -21,17 +21,21 @@ io.sockets.on('connection', function(socket){
 		base: 1.1990,
 		title: 'GBPEUR'
 	}, {
-		refreshMin: 100,
-		refreshMax: 1000
+		refreshMin: 50,
+		refreshMax: 500
 	}), o = model.options;
 
 	console.log(o);
 
 	socket.on('cp:start', function(){
 
-		setInterval(function(){
-			model.tick();
-		}, epik._.random(o.refreshMin, o.refreshMax));
+		var timer,
+			tick = function(){
+				model.tick();
+				timer = setTimeout(tick, epik._.random(o.refreshMin, o.refreshMax))
+			};
+
+		tick();
 
 		model.on('change', function(){
 			socket.emit('cp:change', model._attributes);
