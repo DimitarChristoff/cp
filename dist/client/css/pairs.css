@@ -10,18 +10,22 @@ a, a:visited, a:hover {
 	text-decoration: none;
 }
 
-header {
+header, footer {
 	font-size: 11px;
-	color: white;
+	color: rgba(255,255,255,.7);
+	line-height: 1.4;
 	text-align: center;
 	text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.4);
-	background: #444444 url("http://dimitarchristoff.github.io/epik/images/epik-logo-small.png") no-repeat center center;
-	height: 100px;
 	border-radius: 5px 5px 5px 5px;
 	border: 1px solid #000;
 	-webkit-box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.3);
 	box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.3);
+	background: #444444;
+}
 
+#info {
+	background: #444444 url("http://dimitarchristoff.github.io/epik/images/epik-logo-small.png") no-repeat center center;
+	height: 100px;
 }
 
 #main {
