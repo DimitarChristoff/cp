@@ -6,21 +6,21 @@ body {
 }
 
 a, a:visited, a:hover {
-	color: #447ffb;
+	color: #ffffaf;
 	text-decoration: none;
 }
 footer {
 	font-size: 11px;
 	color: white;
-	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.9);
-	background: url("http://dimitarchristoff.github.io/epik/images/epik-logo-small.png") no-repeat left center;
+	text-align: center;
+	text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.4);
+	background: url("http://dimitarchristoff.github.io/epik/images/epik-logo-small.png") no-repeat center center;
 	height: 100px;
-	padding-left: 36px;
 }
 
 #main {
 	margin: 20px auto auto;
-	width: 800px;
+	width: 600px;
 }
 
 .pair {
