@@ -4,6 +4,8 @@
   "dependencies": {
     "epik": "0.4.2",
     "requirejs-text": "~2.0.10",
-    "todomvc-common": "~0.1.9"
+    "todomvc-common": "~0.1.9",
+    "normalize-css": "~3.0.0",
+    "big.js": "~2.5.0"
   }
 }
