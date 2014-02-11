@@ -30,6 +30,9 @@ body {
 	background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
 	background-repeat: repeat-x;
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+	float: left;
+	margin-right: 16px;
+	margin-bottom: 10px;
 }
 
 .title {
@@ -85,7 +88,7 @@ body {
 	text-align: center;
 	border: 1px solid #808080;
 	border-top: none;
-	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.9);
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
 	background: rgba(0,0,0,.1);
 }
 
@@ -101,6 +104,7 @@ body {
 	float: left;
 	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.9);
 }
+
 .ask-one {
 	text-align: right;
 	width: 25%;
@@ -143,6 +147,26 @@ body {
 	margin-top: 18px;
 }
 
+.ask-three:before, .bid-three:before {
+	margin-top: -17px;
+	margin-left: -1px;
+	font-size: 14px;
+	content: "—";
+	position: absolute;
+	width: 12px;
+	height: 12px;
+	color: #447ffb;
+}
+
+.down .ask-three:before, .down .bid-three:before {
+	color: #e12f2e;
+	content: "▼";
+}
+
+.up .ask-three:before, .up .bid-three:before {
+	color: #444444;
+	content: "▲";
+}
 
 .pair .half.buy .pair-label {
 	color: #447ffb;

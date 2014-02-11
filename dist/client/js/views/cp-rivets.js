@@ -44,9 +44,13 @@ define(function(require){
 				ask.two = a.two;
 				ask.three = a.three;
 
+				ask.className = model._attributes.ask < model._attributes.oldAsk ? 'down': 'up';
+
 				bid.one = b.one;
 				bid.two = b.two;
 				bid.three = b.three;
+
+				bid.className = model._attributes.bid < model._attributes.oldBid ? 'down': 'up';
 			});
 		}
 	});
