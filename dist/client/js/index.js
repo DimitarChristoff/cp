@@ -38,7 +38,12 @@ define(function(require){
 		view = require('./views/cp-rivets');
 
 	new view({
-		element: '#main',
+		element: 'div.pairs',
+		model: cpModel
+	});
+
+	new view({
+		element: 'div.pairs',
 		model: cpModel
 	});
 

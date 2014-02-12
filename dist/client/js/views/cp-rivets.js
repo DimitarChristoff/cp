@@ -1,54 +1,46 @@
 define(function(require){
+	'use strict';
+
 	var primish = require('epik/index').primish,
 		view = require('epik/view'),
-		rivets = require('epik/plugins/rivets-adapter');
+		rivets = require('epik/plugins/rivets-adapter'),
+		tpl = require('text!../../templates/cp.html');
 
 	return primish({
-		implement: [rivets],
+
+		// super
 		extend: view,
+
+		// with rivets
+		implement: [rivets],
+
 		constructor: function(options){
 			this.parent('constructor', options);
-			var format = this.model.formatPrice;
-			this.rivets.formatters.price = function(value){
-				return format(value.toString()).three;
-			};
+
 		},
+
+		/* called automatically by View proto */
 		attachEvents: function(){
-			var bid = {
-				one: 0,
-				two: 0,
-				three: 0
-			};
-			var ask = {
-				one: 0,
-				two: 0,
-				three: 0
-			};
+			var model = this.model,
+				_a = model._attributes,
+				bound = {
+					rate: model,
+					bid: {one:0,two:0,three:0},
+					ask: {one:0,two:0,three:0}
+				};
 
-			var bound = {
-				rate: this.model,
-				bid: bid,
-				ask: ask
-			};
-
-			var model = this.model;
+			this.$element.append('<div class="pair"></div>');
+			this.$pair = this.$element.find('.pair');
+			this.$pair.html(tpl);
 
 			this.bindRivets(bound);
+
+			// when the model changes
 			this.model.on('change:ask', function(){
-				var a = model.formatPrice(model._attributes.ask),
-					b = model.formatPrice(model._attributes.bid);
-
-				ask.one = a.one;
-				ask.two = a.two;
-				ask.three = a.three;
-
-				ask.className = model._attributes.ask < model._attributes.oldAsk ? 'down': 'up';
-
-				bid.one = b.one;
-				bid.two = b.two;
-				bid.three = b.three;
-
-				bid.className = model._attributes.bid < model._attributes.oldBid ? 'down': 'up';
+				bound.ask = model.formatPrice(_a.ask);
+				bound.bid = model.formatPrice(_a.bid);
+				bound.ask.className = _a.ask < _a.oldAsk ? 'down': 'up';
+				bound.bid.className = _a.bid < _a.oldBid ? 'down': 'up';
 			});
 		}
 	});
