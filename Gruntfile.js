@@ -17,7 +17,8 @@ module.exports = function(grunt){
 					port: 8000,
 					bases: [path.resolve('dist'), path.resolve('lib')],
 					serverreload: true,
-					livereload: true
+					livereload: true,
+					open: true
 					//background: !true
 				}
 			}
@@ -29,23 +30,16 @@ module.exports = function(grunt){
 					'dist/client/css/pairs.css': '<%= project.less %>'
 				}
 			}
-		},
-
-		open: {
-			epik: {
-				path: 'http://localhost:8000'
-			}
 		}
+
 	});
 
 	grunt.loadNpmTasks('grunt-express');
 	grunt.loadNpmTasks('grunt-contrib-less');
-	grunt.loadNpmTasks('grunt-open');
 
 	grunt.registerTask('default', [
 		'less',
 		'express',
-		'express-keepalive',
-		'open'
+		'express-keepalive'
 	]);
 };
