@@ -23,6 +23,13 @@ header, footer {
 	background: #444444;
 }
 
+.controls {
+	color: black;
+	position: absolute;
+	margin-top: 70px;
+	margin-left: 8px;
+}
+
 #info {
 	background: #444444 url("http://dimitarchristoff.github.io/epik/images/epik-logo-small.png") no-repeat center center;
 	height: 100px;

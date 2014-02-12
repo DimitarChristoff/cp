@@ -8,7 +8,7 @@ define(function(require){
 		_ = epik._,
 		io = require('io');
 
-	return primish({
+	var Transport = primish({
 
 		implement: [options, emitter],
 
@@ -78,4 +78,6 @@ define(function(require){
 			return this;
 		}
 	});
+
+	return new Transport();
 });

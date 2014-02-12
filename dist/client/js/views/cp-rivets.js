@@ -29,11 +29,11 @@ define(function(require){
 					ask: {one:0,two:0,three:0}
 				};
 
-			this.$element.append('<div class="pair"></div>');
-			this.$pair = this.$element.find('.pair');
-			this.$pair.html(tpl);
-
-			this.bindRivets(bound);
+			var pair = document.createElement('div');
+			pair.className = 'pair';
+			pair.innerHTML = tpl;
+			this.$element.append(pair);
+			this.bindRivets(pair, bound);
 
 			// when the model changes
 			this.model.on('change:ask', function(){

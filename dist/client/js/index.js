@@ -31,25 +31,9 @@ require.config({
 
 
 define(function(require){
-	var transport = new (require('./transport'))(),
-		cpModel = new (require('./models/cp'))({
-			size: 100
-		}),
-		view = require('./views/cp-rivets');
+	var vc = require('./views/pairs-vc');
 
-	new view({
-		element: 'div.pairs',
-		model: cpModel
+	new vc({
+		element: '.controls'
 	});
-
-	new view({
-		element: 'div.pairs',
-		model: cpModel
-	});
-
-	transport.subscribe('cp:change', function(data){
-		cpModel.set(data);
-	});
-
-	transport.send('cp:start');
 });
