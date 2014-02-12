@@ -39,3 +39,5 @@ Notable dependencies are:
  - [big.js](https://github.com/MikeMcl/big.js/) - Working with floats
 
 Internally, `lodash` and `jquery` are also available through epik.
+
+It is in no way supposed to be representative of how an actual FX pair is supposed to work.
