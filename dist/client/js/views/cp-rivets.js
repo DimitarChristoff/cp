@@ -30,7 +30,7 @@ define(function(require){
 				};
 
 			var pair = document.createElement('div');
-			pair.className = 'pair';
+			pair.className = 'col-xs-4 col-md-4';
 			pair.innerHTML = tpl;
 			this.$element.append(pair);
 			this.bindRivets(pair, bound);

@@ -17,7 +17,8 @@
     "primish": "~0.3.3",
     "lodash": "~2.4.1",
     "epik": "~0.4.2",
-    "big.js": "~2.5.0"
+    "big.js": "~2.5.0",
+    "grunt-contrib-watch": "~0.5.3"
   },
   "devDependencies": {
     "grunt": "~0.4.2",

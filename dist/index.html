@@ -1,34 +1,44 @@
 <!doctype html>
-<html lang="en" data-framework="epik">
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>epik.js • Currency Pairs</title>
+		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
 		<link rel="stylesheet" href="client/css/pairs.css"/>
-		<link rel="stylesheet" href="bower_components/normalize-css/normalize.css"/>
 	</head>
 	<body>
-	<section id="main">
-		<header id="info">
-			<div class="controls"></div>
-			<p>Powered by <a href="http://dimitarchristoff.github.io/epik">epik</a></p>
-		</header>
-		<div class="pairs"></div>
-		<div class="clear"></div>
-		<footer>
+	<section id="main" class="container">
+		<nav class="navbar navbar-default">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">epik currency pairs</a>
+			</div>
+			<div class="collapse navbar-collapse">
+				<p class="navbar-text navbar-right">
+					Powered by <a class="navbar-link" href="http://dimitarchristoff.github.io/epik">epik</a>
+				</p>
+			</div>
+
+		</nav>
+		<div class="row">
+			<div class="col-xs-1 col-md-1 controls"></div>
+			<div class="col-sx-11 col-md-11 pairs"></div>
+		</div>
+		<div class="clearfix visible-xs"></div>
+
+		<div class="alert alert-info" id="info">
 			<p>
-				This is a tiny demo running the same model (cp.js) on the server as well as on the client.<br/>
+				This is a tiny demo running the same model (cp.js) on the server as well as on the client.
 				The view is via the rivets.js adapter, all currency pairs are bound to same model as per selection.
 			</p>
 			<p>
-				Performance wise, the aim is for the 'app' to remain responsive <br/>
-				with 10s and even 100+ currency pairs.
+				Performance wise, the aim is for the 'app' to remain responsive with 10s and even 100+ currency pairs.
 			</p>
 
-			<p>
-				The source code, READMEs etc are <a href="https://github.com/dimitarchristoff/cp">here</a>.
-			</p>
-		</footer>
+		</div>
+
+		<center>The source code, READMEs etc are <a href="https://github.com/dimitarchristoff/cp">here</a>.</center>
+
 	</section>
 	<script data-main="client/js/index" src="bower_components/requirejs/require.js"></script>
 	</body>

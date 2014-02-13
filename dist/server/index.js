@@ -53,6 +53,7 @@ io.sockets.on('connection', function(socket){
 });
 
 exports = module.exports = server;
+
 // delegates user() function
 exports.use = function(){
 	app.use.apply(app, arguments);

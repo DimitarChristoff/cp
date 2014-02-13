@@ -21,7 +21,6 @@ define(function(require){
 		implement: rivets,
 
 		constructor: function(options){
-			this.selected = '';
 			this.pairs = new Pairs();
 			this.parent('constructor', options);
 		},
@@ -35,32 +34,50 @@ define(function(require){
 			this.$element.html(tpl);
 		},
 
-		addCurrencyPair: function(e, self){
-			var selected = self.selected;
-
-			if (!selected)
-				return;
-
-			var m = self.pairs.findOne('[title=' + selected + ']');
+		add: function(title){
+			var m = this.pairs.findOne('[title=' + title + ']');
 
 			if (!m){
 				m = new CP({
-					title: selected,
+					title: title,
 					size: 100
 				});
 
-				self.pairs.add(m);
-				transport.subscribe('cp:change:'+selected, function(data){
+				this.pairs.add(m);
+				transport.subscribe('cp:change:'+title, function(data){
 					m.set(data);
 				});
 
-				transport.send('cp:start', selected);
+				transport.send('cp:start', title);
 			}
 
 			new CPview({
 				element: 'div.pairs',
 				model: m
 			});
+		},
+
+		addCurrencyPair: function(e, self){
+			e.preventDefault && e.preventDefault();
+			var selected = this.getAttribute('href').replace('#', '');
+
+			if (!selected)
+				return;
+
+			self.add(selected);
+		},
+
+		addManyPairs: function(e, self){
+			e.preventDefault && e.preventDefault();
+			var links = self.$element.find('a.cp').map(function(i, el){
+				return el.getAttribute('href').replace('#', '');
+			});
+
+			var count = Number(this.getAttribute('href').replace('#', ''));
+
+			while(count--){
+				self.add(links[_.random(0, links.length-1)]);
+			}
 
 		}
 
