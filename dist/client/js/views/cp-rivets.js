@@ -4,7 +4,8 @@ define(function(require){
 	var primish = require('epik/index').primish,
 		view = require('epik/view'),
 		rivets = require('epik/plugins/rivets-adapter'),
-		tpl = require('text!../../templates/cp.html');
+		tpl = require('text!../../templates/cp.html'),
+		transport = require('../transport');
 
 	return primish({
 
@@ -14,11 +15,6 @@ define(function(require){
 		// with rivets
 		implement: [rivets],
 
-		constructor: function(options){
-			this.parent('constructor', options);
-
-		},
-
 		/* called automatically by View proto */
 		attachEvents: function(){
 			var model = this.model,
@@ -26,7 +22,8 @@ define(function(require){
 				bound = {
 					rate: model,
 					bid: {one:0,two:0,three:0},
-					ask: {one:0,two:0,three:0}
+					ask: {one:0,two:0,three:0},
+					vc: this
 				};
 
 			var pair = document.createElement('div');
@@ -42,6 +39,21 @@ define(function(require){
 				bound.ask.className = _a.ask < _a.oldAsk ? 'down': 'up';
 				bound.bid.className = _a.bid < _a.oldBid ? 'down': 'up';
 			});
+		},
+
+		trade: function(){
+
+		},
+
+		buy: function(event, context){
+			var model = context.rate;
+			transport.send('trade', model.get('title'), model.get('size'), 'buy', 'Bob');
+		},
+
+		sell: function(event, context){
+			var model = context.rate;
+			transport.send('trade', model.get('title'), model.get('size'), 'sell', 'Bob');
 		}
+
 	});
 });

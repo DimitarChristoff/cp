@@ -2,7 +2,7 @@
 	<div class="title" ep-text="rate#title"></div>
 	<div class="sell">
 		<div class="half buy">
-			<div ep-class="ask.className">
+			<div ep-class="ask.className" ep-on-click="vc.buy">
 				<div class="pair-label">buy</div>
 				<div class="pips ask-one" ep-text="ask.one"></div>
 				<div class="pips ask-two" ep-text="ask.two"></div>
@@ -10,7 +10,7 @@
 			</div>
 		</div>
 		<div class="half sell">
-			<div ep-class="bid.className">
+			<div ep-class="bid.className" ep-on-click="vc.sell">
 				<div class="pair-label">sell</div>
 				<div class="pips bid-one" ep-text="bid.one"></div>
 				<div class="pips bid-two" ep-text="bid.two"></div>
