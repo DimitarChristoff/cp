@@ -41,10 +41,12 @@ var collection = require('epik/lib/collection'),
 
 io.sockets.on('connection', function(socket){
 	var listening = [],
+		currencies = new collection({
+			model: currencyPairModel
+		}),
 		trades = new Trades([]);
 
 	trades.on('add', function(){
-		console.log(this.toJSON());
 		socket.emit('trades', this.toJSON());
 	});
 
@@ -61,6 +63,7 @@ io.sockets.on('connection', function(socket){
 			refreshMax: 500
 		}), o = model.options;
 
+		currencies.add(model);
 
 		var timer,
 			tick = function(){
@@ -83,7 +86,8 @@ io.sockets.on('connection', function(socket){
 			amount: amount,
 			direction: direction,
 			timestamp: Date.now(),
-			traderId: trader
+			traderId: trader,
+			rate: currencies.findOne('[title=' + currency + ']').get(direction === 'sell' ? 'bid' : 'ask')
 		});
 	});
 

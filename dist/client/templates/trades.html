@@ -1,0 +1,22 @@
+<table class="table table-striped table-bordered" ep-show="trades.length">
+	<thead>
+	<tr>
+		<th>Timestamp</th>
+		<th>Pair</th>
+		<th>Amount (M)</th>
+		<th>Rate</th>
+		<th>Type</th>
+		<th>Trader</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr ep-each-trade="trades#">
+		<td ep-text="trade#timestamp | date"></td>
+		<td ep-text="trade#currency"></td>
+		<td ep-text="trade#amount"></td>
+		<td ep-text="trade#rate"></td>
+		<td ep-text="trade#direction"></td>
+		<td ep-text="trade#traderId"></td>
+	</tr>
+	</tbody>
+</table>

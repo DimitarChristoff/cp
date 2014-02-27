@@ -9,7 +9,8 @@ require.config({
 		jquery: '../../bower_components/jquery/jquery',
 		big: '../../bower_components/big.js/big.min',
 		io: '/socket.io/socket.io',
-		text: '../../bower_components/requirejs-text/text'
+		text: '../../bower_components/requirejs-text/text',
+		moment: '../../bower_components/momentjs/moment'
 	},
 	bundles: {
 		'epik/epik-min': [
@@ -31,9 +32,14 @@ require.config({
 
 
 define(function(require){
-	var vc = require('./views/pairs-vc');
+	var pairsVC = require('./views/pairs-vc'),
+		tradesVC = require('./views/trades-vc');
 
-	new vc({
+	new pairsVC({
 		element: '.controls'
+	});
+
+	new tradesVC({
+		element: '.trades'
 	});
 });

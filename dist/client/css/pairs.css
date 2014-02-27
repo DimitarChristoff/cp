@@ -2,10 +2,7 @@
 body {
   font-family: verdana, helvetica, arial, sans-serif;
   box-sizing: border-box;
-  background-color: #6F5499;
-  background-image: linear-gradient(to bottom, #563d7c 0px, #6f5499 100%);
-  background-repeat: repeat-x;
-  color: #CDBFE3;
+  background-color: #ffffff;
 }
 #info {
   background-image: url("http://dimitarchristoff.github.io/epik/images/epik-logo-small.png");
@@ -13,6 +10,19 @@ body {
   background-position: left center;
   padding-left: 160px;
   margin-top: 16px;
+}
+.trades {
+  margin-top: 20px;
+}
+.table {
+  background-color: #f5f5f5;
+  background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+  background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+  color: #333333;
 }
 .pair {
   margin-bottom: 20px;
