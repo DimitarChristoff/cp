@@ -1,12 +1,12 @@
 <table class="table table-striped table-bordered" ep-show="trades.length">
 	<thead>
 	<tr>
-		<th>Timestamp</th>
-		<th>Pair</th>
-		<th>Amount (M)</th>
-		<th>Rate</th>
-		<th>Type</th>
-		<th>Trader</th>
+		<th ep-on-click="sort" data-how="timestamp">Timestamp</th>
+		<th ep-on-click="sort" data-how="currency">Pair</th>
+		<th ep-on-click="sort" data-how="amount">Amount (M)</th>
+		<th ep-on-click="sort" data-how="rate">Rate</th>
+		<th ep-on-click="sort" data-how="direction">Type</th>
+		<th ep-on-click="sort" data-how="traderId">Trader</th>
 	</tr>
 	</thead>
 	<tbody>

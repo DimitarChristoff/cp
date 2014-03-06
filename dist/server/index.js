@@ -35,21 +35,22 @@ var collection = require('epik/lib/collection'),
 	Trades = primish({
 		extend: collection,
 		model: trade
-	});
-
+	}),
+	trades = new Trades([]);
 
 
 io.sockets.on('connection', function(socket){
 	var listening = [],
 		currencies = new collection({
 			model: currencyPairModel
-		}),
-		trades = new Trades([]);
+		});
 
 	trades.on('add', function(){
 		socket.emit('trades', this.toJSON());
 	});
 
+	trades.trigger('add');
+	
 	socket.on('cp:start', function(currency){
 		currency = currency.toUpperCase();
 		if (listening.indexOf(currency) !== -1)

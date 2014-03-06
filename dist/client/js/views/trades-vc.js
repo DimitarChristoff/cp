@@ -36,6 +36,13 @@ define(function(require){
 				return moment(value).calendar();
 			};
 
+//			var self = this;
+//			this.order = null;
+//			this.rivets.formatters.how = function(how, column){
+//				self.order = (self.order == column) ? column + ':desc' : column;
+//				return how;
+//			};
+
 			this.trades = new Trades([]);
 			this.parent('constructor', options);
 		},
@@ -51,8 +58,19 @@ define(function(require){
 
 		render: function(){
 			this.$element.html(tpl);
-		}
+		},
 
+		sort: function(ev, context){
+			var heading = context.$element.find(ev.currentTarget),
+				how = heading.data('how'),
+				isDesc = context.order == how;
+
+			context.order = isDesc ? how + ':desc' : how;
+			context.trades.sort(context.order);
+			heading.parent().find('th').removeClass('active desc');
+			heading.addClass('active');
+			isDesc && heading.addClass('desc');
+		}
 	});
 
 });
