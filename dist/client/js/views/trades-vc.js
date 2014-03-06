@@ -36,22 +36,17 @@ define(function(require){
 				return moment(value).calendar();
 			};
 
-//			var self = this;
-//			this.order = null;
-//			this.rivets.formatters.how = function(how, column){
-//				self.order = (self.order == column) ? column + ':desc' : column;
-//				return how;
-//			};
-
 			this.trades = new Trades([]);
 			this.parent('constructor', options);
 		},
 
 		attachEvents: function(){
-			var trades = this.trades;
+			var trades = this.trades,
+				self = this;
 			this.render();
 			transport.subscribe('trades', function(tradesFlat){
 				trades.set(tradesFlat);
+				self.order && trades.sort(self.order);
 			});
 			this.bindRivets(this);
 		},

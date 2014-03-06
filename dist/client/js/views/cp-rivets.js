@@ -7,6 +7,9 @@ define(function(require){
 		tpl = require('text!../../templates/cp.html'),
 		transport = require('../transport');
 
+
+	var name = ['Bob','Joe','Arnold','Homer','Garfield'][(Math.random() * 5) >> 0];
+
 	return primish({
 
 		// super
@@ -41,18 +44,14 @@ define(function(require){
 			});
 		},
 
-		trade: function(){
-
-		},
-
 		buy: function(event, context){
 			var model = context.rate;
-			transport.send('trade', model.get('title'), model.get('size'), 'buy', 'Bob');
+			transport.send('trade', model.get('title'), model.get('size'), 'buy', name);
 		},
 
 		sell: function(event, context){
 			var model = context.rate;
-			transport.send('trade', model.get('title'), model.get('size'), 'sell', 'Bob');
+			transport.send('trade', model.get('title'), model.get('size'), 'sell', name);
 		}
 
 	});

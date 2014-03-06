@@ -50,7 +50,7 @@ io.sockets.on('connection', function(socket){
 	});
 
 	trades.trigger('add');
-	
+
 	socket.on('cp:start', function(currency){
 		currency = currency.toUpperCase();
 		if (listening.indexOf(currency) !== -1)
