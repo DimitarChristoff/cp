@@ -1,5 +1,5 @@
 {
-  "name": "todomvc-epik-requirejs",
+  "name": "epik-cp",
   "version": "0.0.1",
   "dependencies": {
     "epik": "0.4.3",
