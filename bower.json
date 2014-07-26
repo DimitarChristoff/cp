@@ -1,13 +1,13 @@
 {
   "name": "epik-cp",
+  "description": "Small currency pair demo via epik + rivets.js",
   "version": "0.0.1",
   "dependencies": {
-    "epik": "0.4.4",
-    "todomvc-common": "~0.1.9",
+    "epik": "0.4.7",
     "big.js": "~2.5.0",
-    "bootstrap": "~3.1.0",
-    "momentjs": "~2.5.1",
-    "requirejs": "~2.1.11",
+    "bootstrap": "~3.2.0",
+    "momentjs": "~2.7.0",
+    "requirejs": "~2.1.14",
     "requirejs-text": "~2.0.12"
   }
 }

@@ -6,7 +6,7 @@ require.config({
 		lodash: '../../bower_components/lodash/dist/lodash',
 		slicker: '../../bower_components/slicker/index',
 		rivets: '../../bower_components/rivets/dist/rivets',
-		jquery: '../../bower_components/jquery/jquery',
+		jquery: '../../bower_components/jquery/dist/jquery',
 		big: '../../bower_components/big.js/big.min',
 		io: '/socket.io/socket.io',
 		text: '../../bower_components/requirejs-text/text',
