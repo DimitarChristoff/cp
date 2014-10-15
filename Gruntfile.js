@@ -18,7 +18,7 @@ module.exports = function(grunt){
 					bases: path.resolve('dist'),
 					//serverreload: true,
 					livereload: true,
-					open: !true
+					open: true
 					//background: !true
 				}
 			}

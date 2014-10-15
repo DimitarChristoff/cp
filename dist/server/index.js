@@ -21,15 +21,17 @@ var rates = {"AUDBGN":"1.2943","AUDCHF":"0.8104","AUDEUR":"0.6618","AUDGBP":"0.5
 
 var collection = require('epik/lib/collection'),
 	model = require('epik/lib/model'),
-	primish = require('epik').primish,
+	primish = epik.primish,
 	trade = primish({
 		extend: model,
-		defaults: {
-			currency: '',
-			amount: 0,
-			direction: '',
-			timestamp: Date.now(),
-			traderId: 0
+		defaults: function(){
+			return {
+				currency: '',
+				amount: 0,
+				direction: '',
+				timestamp: Date.now(),
+				traderId: 0
+			}
 		}
 	}),
 	Trades = primish({
