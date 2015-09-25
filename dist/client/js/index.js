@@ -3,7 +3,7 @@ require.config({
 		epik: '../../bower_components/epik/lib',
 		'rivets-adapter': '../../bower_components/epik/lib/plugins/rivets-adapter',
 		primish: '../../bower_components/primish',
-		lodash: '../../bower_components/lodash/dist/lodash',
+		lodash: '../../bower_components/lodash/lodash',
 		slicker: '../../bower_components/slicker/index',
 		rivets: '../../bower_components/rivets/dist/rivets',
 		jquery: '../../bower_components/jquery/dist/jquery',
