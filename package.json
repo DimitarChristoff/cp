@@ -15,21 +15,20 @@
   "license": "MIT (http://mootools.net/license.txt)",
   "dependencies": {
     "primish": "~0.3.9",
-    "lodash": "~2.4.1",
-    "epik": "~0.9.0",
-    "big.js": "~2.5.0",
-    "grunt-contrib-watch": "~0.5.3"
+    "lodash": "~3.10.1",
+    "epik": "~1.1.0",
+    "socket.io": "~0.9.16",
+    "big.js": "~3.1.3"
   },
   "devDependencies": {
     "grunt": "~0.4.5",
     "grunt-express": "~1.2.1",
-    "socket.io": "~0.9.16",
     "grunt-contrib-less": "~0.7.0",
     "grunt-express-server": "~0.4.10",
     "express": "~3.4.7",
     "grunt-contrib-watch": "~0.5.3"
   },
   "engines": {
-    "node": "~0.10.29"
+    "node": "^4.2.2"
   }
 }
