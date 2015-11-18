@@ -16,7 +16,7 @@
   "dependencies": {
     "primish": "~0.3.9",
     "lodash": "~3.10.1",
-    "epik": "~1.1.0",
+    "epik": "~1.2.1",
     "socket.io": "~0.9.16",
     "big.js": "~3.1.3"
   },
